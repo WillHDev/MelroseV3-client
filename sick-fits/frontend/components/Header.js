@@ -28,6 +28,8 @@ const Logo = styled.h1`
     text-decoration: none;
     font-family: serif;
     font-weight: 600;
+    float: left;
+    margin: 15px;
   }
   @media (max-width: 1300px) {
     margin: 0;
