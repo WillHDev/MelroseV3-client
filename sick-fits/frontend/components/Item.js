@@ -5,16 +5,16 @@ import Title from "./styles/Title";
 import ItemStyles from "./styles/ItemStyles";
 import PriceTag from "./styles/PriceTag";
 import formatMoney from "../lib/formatMoney";
+//import DeleteItem from "./DeleteItem";
+//import AddToCart from "./AddToCart";
 
-class Item extends Component {
+export default class Item extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired
   };
 
-  // {item.image ? <img /> : null}
   render() {
     const { item } = this.props;
-
     return (
       <ItemStyles>
         {item.image && <img src={item.image} alt={item.title} />}
@@ -26,29 +26,23 @@ class Item extends Component {
               query: { id: item.id }
             }}
           >
-            <a> {item.title} </a>
+            <a>{item.title}</a>
           </Link>
         </Title>
         <PriceTag>{formatMoney(item.price)}</PriceTag>
         <p>{item.description}</p>
+
         <div className="buttonList">
           <Link
             href={{
-              path: "/update",
+              pathname: "update",
               query: { id: item.id }
             }}
           >
-            <a>Edit</a>
+            <a>Edit ✏️</a>
           </Link>
         </div>
       </ItemStyles>
     );
   }
 }
-
-export default Item;
-
-// .shape({
-//     title: PropTypes.string.isRequired,
-//     price: Pro
-// })
