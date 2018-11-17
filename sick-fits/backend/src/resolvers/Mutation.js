@@ -13,6 +13,26 @@ const mutations = {
     );
     console.log(item);
     return item;
+  },
+  updateItem(parent, args, ctx, info) {
+    //first take a copy of the updates
+    //take a copy in order to be able to use the id for the return
+    const updates = { ...args };
+    //remove the ID from the updates
+    delete updates.id;
+    //runthe update method
+    //ctx is request context, db is how we access our prisma db, mutation or query, from
+    //there we have a
+    //item ~ info to retrieve item
+    return ctx.db.mutation.updateItem(
+      {
+        data: updates,
+        where: {
+          id: args.id
+        }
+      },
+      info
+    );
   }
 };
 
