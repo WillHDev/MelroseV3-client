@@ -7,6 +7,7 @@ import PriceTag from "./styles/PriceTag";
 import formatMoney from "../lib/formatMoney";
 //import DeleteItem from "./DeleteItem";
 //import AddToCart from "./AddToCart";
+import DeleteItem from "./DeleteItem";
 
 export default class Item extends Component {
   static propTypes = {
@@ -22,7 +23,7 @@ export default class Item extends Component {
         <Title>
           <Link
             href={{
-              pathname: "/item",
+              pathname: "item",
               query: { id: item.id }
             }}
           >
@@ -41,6 +42,7 @@ export default class Item extends Component {
           >
             <a>Edit ✏️</a>
           </Link>
+          <DeleteItem id={item.id}>Delete This Item</DeleteItem>
         </div>
       </ItemStyles>
     );

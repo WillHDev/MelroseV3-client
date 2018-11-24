@@ -44,7 +44,7 @@ class CreateItem extends Component {
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
-    data.append("upload_preset", "melrosept");
+    data.append("upload_preset", "physicaltherap");
 
     const res = await fetch(
       "https://api.cloudinary.com/v1_1/dx7xupqyp/image/upload",
@@ -54,12 +54,14 @@ class CreateItem extends Component {
       }
     );
     const file = await res.json();
+    console.log("file", file);
 
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url
     });
   };
+  //refetchQueries={}
   render() {
     return (
       <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
