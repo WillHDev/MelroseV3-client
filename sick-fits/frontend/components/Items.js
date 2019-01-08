@@ -46,6 +46,7 @@ export class Items extends Component {
           {({ data, error, loading }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error: {error.message}</p>;
+            console.log("DATA", data);
 
             return (
               <ItemsList>
