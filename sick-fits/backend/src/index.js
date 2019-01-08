@@ -12,6 +12,12 @@ const server = createServer();
 
 server.express.use(cookieParser());
 
+//decode jwt so we can get the user Id on each request
+server.express.unsubscribe((req, res, next) => {
+  console.log("Heyyyyyyyyyyyyy");
+  res.send("test");
+});
+
 server.start(
   {
     cors: {
